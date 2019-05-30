@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.4381955861511258 -0.8853017140407538 -0.15564544128940883 0.8005004955421
-  position -0.5149216321402383 0.34170978951223674 0.5656828792970209
+  orientation -0.035868265953982924 0.9985424830677531 0.04032836478634492 1.5255814246168629
+  position 0.6337684167686864 0.135630333755162 0.10630231573658333
 }
 TexturedBackground {
 }
@@ -14,9 +14,11 @@ Floor {
 Robot {
   children [
     Solid {
+      translation 0 0.09499999999999999 0
       children [
         Shape {
           appearance PBRAppearance {
+            baseColor 0.5411764705882353 0.8862745098039215 0.20392156862745098
           }
           geometry Box {
             size 0.25 0.1 0.07
@@ -24,9 +26,21 @@ Robot {
         }
         HingeJoint {
           jointParameters HingeJointParameters {
+            axis 0 0 1
           }
           endPoint Solid {
-            translation 0.08 0 0
+            translation 0.0625 0 0.045
+            rotation 0.9233210835077168 -0.27154987877422654 -0.2715489644388988 1.6504934274790264
+            children [
+              Shape {
+                appearance PBRAppearance {
+                }
+                geometry Cylinder {
+                  height 0.02
+                  radius 0.075
+                }
+              }
+            ]
           }
         }
       ]
