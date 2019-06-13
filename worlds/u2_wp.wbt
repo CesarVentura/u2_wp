@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.7224782679609875 -0.6760349946719575 -0.1449201100709555 5.75184274784927
-  position 0.22182898898958084 0.2551883595853607 0.4746466956923646
+  orientation 0.9899777126108997 0.1410626486248734 -0.0067422323177104585 6.031229000484661
+  position 0.26595567174652535 0.2816233049850627 0.9698856801301629
 }
 TexturedBackground {
 }
@@ -46,13 +46,16 @@ Robot {
         anchor -0.05 0 0.06
       }
       device [
+        PositionSensor {
+          name "encoder1"
+        }
         RotationalMotor {
           name "motor_righ"
         }
       ]
       endPoint DEF WHEEL1 Solid {
         translation -0.05 0 0.06
-        rotation -0.678976748971121 0.5191302289379282 -0.5191284809750488 1.948642546262657
+        rotation -0.678976748971121 0.5191302289379282 -0.5191284809750488 1.9486425462626573
         children [
           DEF SH_WELL_SHApe Shape {
             appearance PBRAppearance {
@@ -113,10 +116,31 @@ Robot {
         }
       ]
       name "distance_sensor"
+      lookupTable [
+        0 0 0
+        0.02 0 0
+        11 1023 0
+      ]
+      resolution 1
     }
   ]
   boundingObject USE G_box
   physics Physics {
   }
-  controller "Robot1"
+  controller "u2_wp"
+}
+Solid {
+  translation 0.20999999999999996 0.05 0
+  rotation 1 0 0 6.283185307179586
+  children [
+    DEF D_OBSTACLE Shape {
+      appearance PBRAppearance {
+        baseColor 0.6784313725490196 0.4980392156862745 0.6588235294117647
+      }
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  boundingObject USE D_OBSTACLE
 }

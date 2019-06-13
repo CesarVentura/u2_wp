@@ -14,6 +14,7 @@
 #include <webots/motor.h>
 #include <webots/keyboard.h>
 #include <webots/distance_sensor.h>
+
 #include <stdio.h>
 #include <math.h>
 
@@ -33,10 +34,10 @@
 int main(int argc, char **argv)
 {
   /* necessary to initialize webots stuff */
-  wb_robot_init();
-  wb_keyboard_enable(TIME_STEP);
+             wb_robot_init();
+             wb_keyboard_enable(TIME_STEP);
   
-  int pressed_key;
+             int key;
 
   /*
    * You should declare here WbDeviceTag variables for storing
@@ -59,11 +60,9 @@ int main(int argc, char **argv)
     wb_motor_set_position(wheel_left, INFINITY);
     
     
-   // WbDeviceTag dist_sensor = wb_robot_get_device("distance_sensor");
-    
-    //wb_distance_sensor_enable(dist_sensor,TIME_STEP);
-    
-    //double ds_value;
+    WbDeviceTag dist_sensor = wb_robot_get_device("distance_sensor");
+    wb_distance_sensor_enable(dist_sensor, TIME_STEP);
+    double ds_value;
   
 
     
@@ -76,10 +75,12 @@ int main(int argc, char **argv)
   while (wb_robot_step(TIME_STEP) != -1) {
 
 
-      pressed_key = wb_keyboard_get_key();
+       key = wb_keyboard_get_key();
       
       
- //ds_vlue =  wb_distance_sensor_get_value(dist_sensor),
+       ds_value =  wb_distance_sensor_get_value(dist_sensor);
+       printf("dist_sensor%lf\n", ds_value);
+
     /*
      * Read the sensors :
      * Enter here functions to read sensor data, like:
@@ -97,7 +98,7 @@ int main(int argc, char **argv)
      //wb_motor_set_velocity(wheel_left,-2);
      
      
-     if (pressed_key == WB_KEYBOARD_UP)
+     if (key == WB_KEYBOARD_UP)
      {
        wb_motor_set_velocity (wheel_righ, -6.28);
        wb_motor_set_velocity (wheel_left, -6.28);
@@ -105,21 +106,21 @@ int main(int argc, char **argv)
 
      }
 
-     else if (pressed_key == WB_KEYBOARD_DOWN)
+     else if (key == WB_KEYBOARD_DOWN)
      {
        wb_motor_set_velocity (wheel_righ, 6.28);
        wb_motor_set_velocity (wheel_left, 6.28);
        printf ("DOWN key pressed!\n");
      }
 
-     else if (pressed_key == WB_KEYBOARD_RIGHT)
+     else if (key == WB_KEYBOARD_RIGHT)
      {
        wb_motor_set_velocity(wheel_righ, 6.28);
        wb_motor_set_velocity(wheel_left, -6.28);
        printf ("LEFT key pressed!\n");
      }
 
-     else if (pressed_key == WB_KEYBOARD_LEFT)
+     else if (key == WB_KEYBOARD_LEFT)
      {
        wb_motor_set_velocity(wheel_righ, -6.28);
        wb_motor_set_velocity(wheel_left, 6.28);
