@@ -100,16 +100,16 @@ int main(int argc, char **argv)
      
      if (key == WB_KEYBOARD_UP)
      {
-       wb_motor_set_velocity (wheel_righ, -6.28);
-       wb_motor_set_velocity (wheel_left, -6.28);
+       wb_motor_set_velocity (wheel_righ, -6.36);
+       wb_motor_set_velocity (wheel_left, -6.36);
        printf ("UP key pressed!\n");
 
      }
 
      else if (key == WB_KEYBOARD_DOWN)
      {
-       wb_motor_set_velocity (wheel_righ, 6.28);
-       wb_motor_set_velocity (wheel_left, 6.28);
+       wb_motor_set_velocity (wheel_righ, 0.2122);
+       wb_motor_set_velocity (wheel_left, 0.2122);
        printf ("DOWN key pressed!\n");
      }
 

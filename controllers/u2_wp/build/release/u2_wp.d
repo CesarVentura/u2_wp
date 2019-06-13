@@ -1,4 +1,4 @@
-build/release/Robot1.o: Robot1.c \
+build/release/u2_wp.o: u2_wp.c \
  /usr/local/webots/include/controller/c/webots/robot.h \
  /usr/local/webots/include/controller/c/webots/types.h \
  /usr/local/webots/include/controller/c/webots/nodes.h \

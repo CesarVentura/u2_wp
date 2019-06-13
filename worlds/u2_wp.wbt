@@ -3,7 +3,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation 0.9899777126108997 0.1410626486248734 -0.0067422323177104585 6.031229000484661
-  position 0.26595567174652535 0.2816233049850627 0.9698856801301629
+  position 0.2638770851124549 0.2961221652565132 1.0267851394843068
 }
 TexturedBackground {
 }
@@ -51,11 +51,12 @@ Robot {
         }
         RotationalMotor {
           name "motor_righ"
+          maxTorque 0.4903
         }
       ]
       endPoint DEF WHEEL1 Solid {
         translation -0.05 0 0.06
-        rotation -0.678976748971121 0.5191302289379282 -0.5191284809750488 1.9486425462626573
+        rotation -0.6789767489711211 0.5191302289379283 -0.5191284809750489 1.9486425462626573
         children [
           DEF SH_WELL_SHApe Shape {
             appearance PBRAppearance {
@@ -82,6 +83,7 @@ Robot {
       device [
         RotationalMotor {
           name "motor_left"
+          maxTorque 0.4903
         }
       ]
       endPoint DEF WHELL2 Solid {
